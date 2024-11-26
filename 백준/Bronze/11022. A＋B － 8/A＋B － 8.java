@@ -1,30 +1,22 @@
-
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int T = sc.nextInt();
-		int sum = 0;
-		
-		int[][] arr = new int[T][2];
-		
-		
-		for(int i = 0; i < T; i++) {
-			for(int j = 0; j < 2; j++) {
-				arr[i][j] = sc.nextInt();
-			}
-		}
-        sc.close();        
-        
-		for(int i = 0; i < T; i++) {
-			for(int j = 0; j < 2; j++) {
-				sum += arr[i][j];
-			}
-			System.out.printf("Case #%d: %d + %d = %d\n", 
-					i+1, arr[i][0], arr[i][1], sum);
-			sum = 0;
-		}
-	}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+
+        int T = Integer.parseInt(br.readLine());
+
+        for (int i = 1; i <= T; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int A = Integer.parseInt(st.nextToken());
+            int B = Integer.parseInt(st.nextToken());
+            sb.append("Case #").append(i).append(": ").append(A).append(" + ").append(B).append(" = ").append(A + B).append("\n");
+        }
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+    }
 }
