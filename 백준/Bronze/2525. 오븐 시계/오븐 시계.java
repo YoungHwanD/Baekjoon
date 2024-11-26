@@ -1,25 +1,25 @@
-
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-		int hour = sc.nextInt();
-		int minute = sc.nextInt();
-		int n = sc.nextInt();
-		int h1 = 0;
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
 
-		if (minute + n >= 60) {
-			h1 = hour + ((minute + n) / 60);
-			if(h1 >= 24) {
-				
-				System.out.printf("%d %d", h1-24, (minute + n) % 60);
-			}else {
-				System.out.printf("%d %d", h1, (minute + n) % 60);
-			}
-		}else {
-			System.out.printf("%d %d", hour, (minute + n) % 60);
-		}
-	}
+        int C = Integer.parseInt(br.readLine());
+
+        br.close();
+
+        int h = (B + C) / 60;
+        h = (A + h) % 24;
+
+        int m = (B + C) % 60;
+
+        System.out.printf("%d %d", h, m);
+    }
 }
