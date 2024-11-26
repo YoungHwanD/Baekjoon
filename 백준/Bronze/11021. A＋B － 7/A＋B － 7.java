@@ -6,19 +6,18 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
-        int [] arr = new int[T];
 
-        for (int i = 0; i < T; i++) {
+
+        for (int i = 1; i <= T; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
-            arr[i] = A + B;
+            sb.append("Case #").append(i).append(": ").append(A + B).append("\n");
         }
 
-        for (int i = 0; i < T; i++) {
-            System.out.printf("Case #%d: %d\n", i + 1, arr[i]);
-        }
+        System.out.println(sb.toString());
 
     }
 }
