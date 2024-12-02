@@ -1,19 +1,23 @@
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashSet;
-import java.util.Scanner;
 
-public class Main{
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		HashSet<Integer> h = new HashSet<Integer>();
-		
-		for(int i = 0; i < 10; i++) {
-			h.add(sc.nextInt() % 42);
-		}
-		
-		sc.close();
-		
-		System.out.println(h.size());
-	}
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        HashSet<Integer> set = new HashSet<>();
+        int N;
+        int result = 0;
+        for (int i = 0; i < 10; i++) {
+            N = Integer.parseInt(br.readLine());
+            if (set.contains(N % 42)) {
+                continue;
+            } else {
+                set.add(N % 42);
+                result++;
+            }
+        }
+        System.out.println(result);
+    }
 }
