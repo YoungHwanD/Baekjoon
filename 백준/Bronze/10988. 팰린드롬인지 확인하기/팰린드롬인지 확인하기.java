@@ -10,22 +10,16 @@ public class Main {
         int n = s.length() - 1;
         int pal = 1;
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length() / 2; i++) {
             char c = s.charAt(i);
-            char c2 = s.charAt(n);
-            n--;
+            char c2 = s.charAt(n - i);
 
-            if (i > n) {
-                break;
-            }
-            if (c == c2) {
-                pal = 1;
-            } else {
+            if (c != c2) {
                 pal = 0;
                 break;
             }
-
         }
+        
         System.out.println(pal);
     }
 }
